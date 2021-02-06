@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Menu/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Music and Sounds/Menu Select.wav" type="AudioStream" id=4]
+[ext_resource path="res://Music and Sounds/Second_HappySong.wav" type="AudioStream" id=5]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" parent="." instance=ExtResource( 3 )]
+
+[node name="ColorRect" parent="Menu" index="0"]
+color = Color( 0.14902, 0.0352941, 0.239216, 1 )
+
+[node name="MarginContainer" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox" index="0"]
+margin_right = 235.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox" index="1"]
+margin_left = 239.0
+
+[node name="Label" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="0"]
+margin_right = 41.0
+
+[node name="Label2" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="1"]
+margin_right = 41.0
+
+[node name="StartGameButton" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="2"]
+margin_right = 41.0
+text = "Start"
+
+[node name="QuitGameButton" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="3"]
+visible = false
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="TitleSongPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 20.0
+margin_top = 38.0
+margin_right = 255.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftButton" type="Button" parent="CenterContainer"]
+margin_left = 107.0
+margin_top = 51.0
+margin_right = 127.0
+margin_bottom = 71.0
+text = "<"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 38.0
+margin_right = 255.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_right = 235.0
+margin_bottom = 14.0
+size_flags_horizontal = 7
+size_flags_vertical = 5
+text = "HOW TO PLAY"
+
+[node name="Tree" type="Tree" parent="HBoxContainer"]
+margin_top = 18.0
+margin_right = 235.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tree2" type="Label" parent="HBoxContainer"]
+margin_top = 108.0
+margin_right = 235.0
+margin_bottom = 122.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "o o o o o o o o"
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+margin_left = 20.0
+margin_top = 38.0
+margin_right = 255.0
+margin_bottom = 160.0
+
+[node name="RightButton" type="Button" parent="CenterContainer2"]
+margin_left = 107.0
+margin_top = 51.0
+margin_right = 127.0
+margin_bottom = 71.0
+text = ">"
+
+[node name="Spacer" type="Label" parent="."]
+margin_left = 20.0
+margin_top = 38.0
+margin_right = 255.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
+[connection signal="finished" from="TitleSongPlayer" to="." method="_on_TitleSongPlayer_finished"]
+
+[editable path="Menu"]

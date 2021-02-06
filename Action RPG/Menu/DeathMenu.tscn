@@ -1,0 +1,191 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu/DeathMenu.gd" type="Script" id=1]
+[ext_resource path="res://UI/PlayerStatTrackers.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menu/MenuSelectSound.tscn" type="PackedScene" id=4]
+
+[node name="DeathMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.254902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseOverlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseOverlay/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 310.0
+margin_bottom = 170.0
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2"]
+margin_right = 300.0
+margin_bottom = 14.0
+
+[node name="Title" type="Label" parent="PauseOverlay/MarginContainer/VBoxContainer2/CenterContainer"]
+pause_mode = 2
+margin_left = 112.0
+margin_right = 188.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "GAME OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 300.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="ColorRect" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer"]
+margin_right = 179.0
+margin_bottom = 142.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.14902, 0.0352941, 0.239216, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 169.0
+margin_bottom = 132.0
+color = Color( 0.2, 0.172549, 0.313726, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 154.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerStatTrackers" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 149.0
+margin_bottom = 0.0
+
+[node name="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="CenterContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="0"]
+margin_right = 149.0
+
+[node name="Label" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/CenterContainer" index="0"]
+margin_left = 45.0
+margin_right = 103.0
+
+[node name="Kills" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="1"]
+margin_right = 149.0
+
+[node name="HeartsPickedUp" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="2"]
+margin_right = 149.0
+
+[node name="DamageDone" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="3"]
+margin_right = 149.0
+
+[node name="Deaths" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="4"]
+margin_right = 149.0
+
+[node name="Restarts" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="5"]
+margin_right = 149.0
+
+[node name="Time" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="6"]
+margin_right = 149.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 183.0
+margin_right = 300.0
+margin_bottom = 142.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2"]
+pause_mode = 2
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 87.0
+margin_bottom = 122.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Label" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
+pause_mode = 2
+margin_right = 57.0
+margin_bottom = 14.0
+
+[node name="RestartButton" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
+pause_mode = 2
+margin_top = 18.0
+margin_right = 57.0
+margin_bottom = 38.0
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
+pause_mode = 2
+margin_top = 42.0
+margin_right = 57.0
+margin_bottom = 62.0
+text = "Quit"
+
+[node name="MenuSelectSound" parent="." instance=ExtResource( 4 )]
+[connection signal="pressed" from="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+
+[editable path="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers"]
