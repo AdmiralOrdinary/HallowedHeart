@@ -1,8 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Roboto16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=2]
+[ext_resource path="res://UI/Roboto8.tres" type="DynamicFont" id=3]
 
 [node name="PlayerStatTrackers" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,48 +20,77 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_right = 58.0
-margin_bottom = 14.0
+margin_right = 66.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
-margin_right = 58.0
-margin_bottom = 14.0
+margin_right = 66.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
 text = "Statistics"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="VBoxContainer"]
+margin_top = 23.0
+margin_right = 66.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rolls" type="Label" parent="VBoxContainer"]
+margin_top = 37.0
+margin_right = 66.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Kills" type="Label" parent="VBoxContainer"]
-margin_top = 18.0
-margin_right = 58.0
-margin_bottom = 32.0
-
-[node name="HeartsPickedUp" type="Label" parent="VBoxContainer"]
-margin_top = 36.0
-margin_right = 58.0
-margin_bottom = 50.0
-
-[node name="DamageDone" type="Label" parent="VBoxContainer"]
-margin_top = 54.0
-margin_right = 58.0
-margin_bottom = 68.0
+margin_top = 51.0
+margin_right = 66.0
+margin_bottom = 61.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 
 [node name="Deaths" type="Label" parent="VBoxContainer"]
-margin_top = 72.0
-margin_right = 58.0
-margin_bottom = 86.0
+margin_top = 65.0
+margin_right = 66.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Restarts" type="Label" parent="VBoxContainer"]
-margin_top = 90.0
-margin_right = 58.0
-margin_bottom = 104.0
+margin_top = 79.0
+margin_right = 66.0
+margin_bottom = 89.0
+custom_fonts/font = ExtResource( 3 )
 
-[node name="Time" type="Label" parent="VBoxContainer"]
-margin_top = 108.0
-margin_right = 58.0
-margin_bottom = 122.0
+[node name="DamageDone" type="Label" parent="VBoxContainer"]
+margin_top = 93.0
+margin_right = 66.0
+margin_bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+
+[node name="DamageTaken" type="Label" parent="VBoxContainer"]
+margin_top = 107.0
+margin_right = 66.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HeartsPickedUp" type="Label" parent="VBoxContainer"]
+margin_top = 121.0
+margin_right = 66.0
+margin_bottom = 131.0
+custom_fonts/font = ExtResource( 3 )

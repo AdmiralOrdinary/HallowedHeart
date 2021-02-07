@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menu/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=2]
 [ext_resource path="res://Menu/Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Music and Sounds/Menu Select.wav" type="AudioStream" id=4]
 [ext_resource path="res://Music and Sounds/Second_HappySong.wav" type="AudioStream" id=5]
@@ -8,6 +9,7 @@
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15,24 +17,24 @@ __meta__ = {
 
 [node name="Menu" parent="." instance=ExtResource( 3 )]
 
-[node name="ColorRect" parent="Menu" index="0"]
-color = Color( 0.14902, 0.0352941, 0.239216, 1 )
+[node name="CoverImage" parent="Menu" index="1"]
+position = Vector2( 160, 80 )
 
 [node name="MarginContainer" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox" index="0"]
-margin_right = 235.0
+margin_right = 230.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox" index="1"]
-margin_left = 239.0
+margin_left = 234.0
 
 [node name="Label" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="0"]
-margin_right = 41.0
+margin_right = 46.0
 
 [node name="Label2" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="1"]
-margin_right = 41.0
+margin_right = 46.0
 
 [node name="StartGameButton" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="2"]
-margin_right = 41.0
+margin_right = 46.0
 text = "Start"
 
 [node name="QuitGameButton" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="3"]
@@ -45,6 +47,7 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
 margin_left = 20.0
 margin_top = 38.0
 margin_right = 255.0
@@ -55,12 +58,13 @@ __meta__ = {
 
 [node name="LeftButton" type="Button" parent="CenterContainer"]
 margin_left = 107.0
-margin_top = 51.0
+margin_top = 48.0
 margin_right = 127.0
-margin_bottom = 71.0
+margin_bottom = 73.0
 text = "<"
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 margin_left = 20.0
 margin_top = 38.0
 margin_right = 255.0
@@ -71,22 +75,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
 margin_right = 235.0
-margin_bottom = 14.0
+margin_bottom = 19.0
+
+[node name="Label" type="Label" parent="HBoxContainer/CenterContainer"]
+margin_left = 65.0
+margin_right = 169.0
+margin_bottom = 19.0
 size_flags_horizontal = 7
 size_flags_vertical = 5
+theme = ExtResource( 2 )
 text = "HOW TO PLAY"
 
 [node name="Tree" type="Tree" parent="HBoxContainer"]
-margin_top = 18.0
+margin_top = 23.0
 margin_right = 235.0
-margin_bottom = 104.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Tree2" type="Label" parent="HBoxContainer"]
-margin_top = 108.0
+margin_top = 103.0
 margin_right = 235.0
 margin_bottom = 122.0
 size_flags_horizontal = 3
@@ -94,19 +104,22 @@ size_flags_vertical = 1
 text = "o o o o o o o o"
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
+visible = false
 margin_left = 20.0
 margin_top = 38.0
 margin_right = 255.0
 margin_bottom = 160.0
 
 [node name="RightButton" type="Button" parent="CenterContainer2"]
+visible = false
 margin_left = 107.0
-margin_top = 51.0
+margin_top = 48.0
 margin_right = 127.0
-margin_bottom = 71.0
+margin_bottom = 73.0
 text = ">"
 
 [node name="Spacer" type="Label" parent="."]
+visible = false
 margin_left = 20.0
 margin_top = 38.0
 margin_right = 255.0

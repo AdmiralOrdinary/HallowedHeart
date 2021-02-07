@@ -72,24 +72,6 @@ color = Color( 0.14902, 0.0352941, 0.239216, 1 )
 [node name="MarginContainer" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 169.0
-margin_bottom = 132.0
-color = Color( 0.2, 0.172549, 0.313726, 1 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -98,11 +80,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 154.0
-margin_bottom = 117.0
+margin_right = 174.0
+margin_bottom = 137.0
+color = Color( 0.2, 0.172549, 0.313726, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 3
+custom_constants/margin_top = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 166.0
+margin_bottom = 129.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -110,7 +110,7 @@ __meta__ = {
 }
 
 [node name="PlayerStatTrackers" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 149.0
+margin_right = 163.0
 margin_bottom = 0.0
 
 [node name="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers" index="0"]
@@ -120,29 +120,35 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="CenterContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="0"]
-margin_right = 149.0
+margin_right = 163.0
 
 [node name="Label" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/CenterContainer" index="0"]
-margin_left = 45.0
-margin_right = 103.0
+margin_left = 48.0
+margin_right = 114.0
 
-[node name="Kills" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="1"]
-margin_right = 149.0
+[node name="Time" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="1"]
+margin_right = 163.0
 
-[node name="HeartsPickedUp" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="2"]
-margin_right = 149.0
+[node name="Rolls" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="2"]
+margin_right = 163.0
 
-[node name="DamageDone" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="3"]
-margin_right = 149.0
+[node name="Kills" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="3"]
+margin_right = 163.0
 
 [node name="Deaths" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="4"]
-margin_right = 149.0
+margin_right = 163.0
 
 [node name="Restarts" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="5"]
-margin_right = 149.0
+margin_right = 163.0
 
-[node name="Time" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="6"]
-margin_right = 149.0
+[node name="DamageDone" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="6"]
+margin_right = 163.0
+
+[node name="DamageTaken" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="7"]
+margin_right = 163.0
+
+[node name="HeartsPickedUp" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="8"]
+margin_right = 163.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer"]
 margin_left = 183.0
@@ -167,24 +173,34 @@ __meta__ = {
 
 [node name="Spacer" type="Label" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
 pause_mode = 2
+visible = false
 margin_right = 57.0
 margin_bottom = 14.0
 
+[node name="CheckpointButton" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
+pause_mode = 2
+visible = false
+margin_top = 18.0
+margin_right = 83.0
+margin_bottom = 38.0
+text = "Checkpoint"
+
 [node name="RestartButton" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
 pause_mode = 2
-margin_top = 18.0
 margin_right = 57.0
-margin_bottom = 38.0
+margin_bottom = 20.0
 text = "Restart"
 
 [node name="QuitButton" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
 pause_mode = 2
-margin_top = 42.0
+margin_top = 24.0
 margin_right = 57.0
-margin_bottom = 62.0
+margin_bottom = 44.0
 text = "Quit"
 
 [node name="MenuSelectSound" parent="." instance=ExtResource( 4 )]
+[connection signal="pressed" from="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton" to="." method="_on_CheckpointButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 

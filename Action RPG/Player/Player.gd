@@ -35,6 +35,13 @@ func _ready():
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 	stats.connect("damage_change", self, "add_damage")
+	stats.connect("damage_set", self, "set_damage")
+	stats.connect("checkpoint", self, "checkpoint")
+	
+func checkpoint():
+	print("checkpoint")
+	self.position.x = 821
+	self.position.y = 150
 	
 func _physics_process(delta):
 	match state:
@@ -69,6 +76,7 @@ func move_state(delta):
 	move()
 	
 	if Input.is_action_just_pressed("roll"):
+		PlayerStats.rolls += 1
 		state = ROLL
 	
 	if Input.is_action_just_pressed("attack"):
@@ -88,6 +96,7 @@ func attack_state():
 	animationState.travel("Attack")
 	
 func roll_animation_finished():
+	#PlayerStats.rolls += 1
 	velocity = velocity * 0.8
 	state = MOVE
 
@@ -96,8 +105,12 @@ func attack_animation_finished():
 	
 func add_damage(value):
 	swordHitbox.damage += value
+	
+func set_damage(value):
+	swordHitbox.damage = value
 
 func _on_Hurtbox_area_entered(area):
+	PlayerStats.damageTaken += 1
 	stats.health -= area.damage
 	hurtbox.start_invincibility(1)
 	hurtbox._create_hit_effect()

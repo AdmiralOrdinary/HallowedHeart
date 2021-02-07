@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/HealthUI.gd" type="Script" id=1]
 [ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=2]
 [ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=3]
+[ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=4]
 
 [node name="HealthUI" type="Control"]
 anchor_right = 1.0
@@ -32,6 +33,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -8.0
@@ -41,3 +43,23 @@ size_flags_horizontal = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+pause_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 40.0
+margin_top = -2.98023e-08
+margin_right = 135.0
+margin_bottom = 19.0
+rect_rotation = -0.123098
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="RichTextLabel"]
+pause_mode = 1
+wait_time = 0.1
+autostart = true
+[connection signal="timeout" from="RichTextLabel/Timer" to="." method="_on_Timer_timeout"]

@@ -41,11 +41,13 @@ onready var bat1health = $SuperBat1/Stats
 onready var bat2health = $SuperBat2/Stats
 onready var bat3health = $SuperBat3/Stats
 onready var bat4health = $SuperBat4/Stats
+onready var timer = $Timer
 
 
 func _ready():
 	animationTree.active = true
 	state = IDLE #pick_random_state([ATTACKLEFT, ATTACKMID, ATTACKRIGHT])
+	timer.start()
 	PlayerStats.connect("boss_no_health", self, "_on_Stats_no_health")
 	stats.set_process(false)
 
@@ -54,6 +56,9 @@ func _physics_process(delta):
 		IDLE:
 			#print("idle")
 			animationState.travel("Idle")
+			#print("timer start")
+			#timer.set_one_shot(false)
+			
 			
 			
 			
@@ -61,8 +66,9 @@ func _physics_process(delta):
 			#	update_wander()
 			
 		BREAK:
-			hurtbox.start_invincibility(5)
-			state = SUMMON
+			hurtbox.start_invincibility(.5)
+			animationState.travel("Injured")
+			timer.stop()
 			
 		ATTACKMID:
 			#print("all")
@@ -84,8 +90,9 @@ func _physics_process(delta):
 			
 		SUMMON:
 			animationState.travel("Summon")
+			timer.autostart = false
 			
-			print("summon")
+			#print("summon")
 			
 			#var player = playerDetectionZone.player
 			
@@ -99,21 +106,21 @@ func seek_player():
 	animationState.travel("Idle")
 	#print(state)
 	var random = rand_range(1,100)
-	print(random)
+	#print(random)
 	if random <= 5:
-		print("1")
+		#print("1")
 		#bat1health.set_health(2)
 		#bat2health.set_health(2)
 		#bat3health.set_health(2)
 		#bat4health.set_health(2)
 		state = SUMMON
 	elif random <= 10:
-		print("2")
+		#print("2")
 		state = IDLE
 	if random <= 40:
-		print("3")
+		#print("3")
 		if nearplayerDetectionZone.can_see_player():
-			print("Should print mid next")
+			#print("Should print mid next")
 			state = ATTACKMID
 		elif leftplayerDetectionZone.can_see_player():
 			#print("Should print left next")
@@ -129,13 +136,13 @@ func seek_player():
 			bat4health.set_health(2)
 			state = SUMMON
 	elif random <= 65:
-		print("4")
+		#print("4")
 		state = ATTACKRIGHT
 	elif random <= 90:
-		print("5")
+		#print("5")
 		state = ATTACKLEFT
 	elif random <= 100:
-		print("6")
+		#print("6")
 		state = ATTACKMID
 	else:
 		state = IDLE
@@ -173,9 +180,14 @@ func _on_Hurtbox_invincibility_ended():
 	animationPlayer.play("Stop")
 
 func _on_Animation_finished():
+	timer.start()
+	print("timer start")
 	state = IDLE
+	
 
 func _on_Timer_timeout():
+	timer.stop()
+	print("timer Stop")
 	if nearplayerDetectionZone.can_see_player():
 		#print("Should print mid next")
 		seek_player()
@@ -189,6 +201,7 @@ func _on_Timer_timeout():
 		state = IDLE
 
 func _on_Stats_health_count():
+	
 	print("HEALTH COUNT SIGNAL")
 	state = BREAK
-	stats.set_health_count(10)
+	stats.set_health_count(6)

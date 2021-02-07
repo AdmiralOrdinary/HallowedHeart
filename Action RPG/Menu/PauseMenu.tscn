@@ -31,9 +31,9 @@ __meta__ = {
 
 [node name="Title2" type="Label" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/CenterContainer" index="0"]
 pause_mode = 2
-margin_left = 124.0
-margin_right = 175.0
-margin_bottom = 14.0
+margin_left = 120.0
+margin_right = 180.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "PAUSED"
@@ -43,15 +43,18 @@ __meta__ = {
 
 [node name="Title" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/CenterContainer" index="1"]
 visible = false
+margin_left = 106.0
+margin_right = 194.0
+margin_bottom = 19.0
 
 [node name="MarginContainer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer" index="0"]
 margin_right = 167.0
 
 [node name="ColorRect" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer" index="0"]
-margin_right = 157.0
+margin_right = 162.0
 
 [node name="VBoxContainer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer" index="0"]
-margin_right = 142.0
+margin_right = 154.0
 
 [node name="PlayerStatTrackers" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer" index="0"]
 margin_right = 137.0
@@ -60,7 +63,7 @@ margin_right = 137.0
 margin_left = 171.0
 
 [node name="VBoxContainer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2" index="0"]
-margin_right = 99.0
+margin_right = 105.0
 
 [node name="Spacer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="0"]
 margin_right = 69.0
@@ -75,12 +78,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RestartButton" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="2"]
+[node name="RestartButton" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="3"]
 margin_top = 42.0
 margin_right = 69.0
 margin_bottom = 62.0
 
-[node name="QuitButton" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="3"]
+[node name="QuitButton" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="4"]
 margin_top = 66.0
 margin_right = 69.0
 margin_bottom = 86.0

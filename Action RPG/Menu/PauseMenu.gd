@@ -45,6 +45,7 @@ func _on_ContinueButton_pressed():
 	set_paused(false)
 
 
+
 func _on_RestartButton_pressed():
 	PlayerStats.restarts += 1
 	PlayerStats.reset_boss_health()
@@ -55,6 +56,7 @@ func _on_RestartButton_pressed():
 
 
 func _on_QuitButton_pressed():
+	PlayerStats.main_menu()
 	#TitleSongPlayer.stop()
 	MenuSelect.play()
 	set_paused(false)
