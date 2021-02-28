@@ -1,16 +1,17 @@
 extends Control
 
 onready var scene_tree: = get_tree()
-onready var deathsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Deaths
-onready var restartsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Restarts
-onready	var timeLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Time
-onready var kills = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Kills
-onready var hearts =$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HeartsPickedUp
-onready var damageDone = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/DamageDone
-onready var damageTaken =$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/DamageTaken
-onready var rolls = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Rolls
+onready var deathsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Deaths
+onready var restartsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Restarts
+onready	var timeLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Time
+onready var kills = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Kills
+onready var hearts =$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/HeartsPickedUp
+onready var damageDone = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/DamageDone
+onready var damageTaken =$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/DamageTaken
+onready var rolls = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Rolls
 onready var checkpointButton = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton
 onready var MenuSelect = $MenuSelectSound
+onready var pause_overlay = $PauseOverlay
 
 func _ready():
 	deathsLabel.text = "Deaths: " + str(PlayerStats.deaths)
@@ -21,11 +22,14 @@ func _ready():
 	damageDone.text = "Damage Dealt: " + str(PlayerStats.damageDone)
 	rolls.text = "Rolls: " + str(PlayerStats.rolls)
 	damageTaken.text = "Damage Taken: " + str(PlayerStats.damageTaken)
+	if PlayerStats.checkpoint == true:
+			checkpointButton.set_visible(true)
 
 var paused: = true setget set_paused
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
+		set_paused(true)
 		if PlayerStats.checkpoint == true:
 			checkpointButton.set_visible(true)
 		else:
@@ -46,16 +50,26 @@ func _unhandled_input(event: InputEvent) -> void:
 func set_paused(value: bool) -> void:
 	paused = value
 	scene_tree.paused = value
+	pause_overlay.visible = value
 
 func _on_CheckpointButton_pressed():
+	
 	PlayerStats.restarts += 1
 	PlayerStats.reset_boss_health()
 	MenuSelect.play()
-	PlayerStats.checkpoint()
-	scene_tree.reload_current_scene()
-	set_paused(false)
+	if PlayerStats.health == 0:
+		PlayerStats.checkpoint()
+		set_paused(false)
+		queue_free()
+	else:
+		PlayerStats.checkpoint()
+		set_paused(false)
+
+	
 
 func _on_RestartButton_pressed():
+	if PlayerStats.health != 0:
+		PlayerStats.restarts += 1
 	MenuSelect.play()
 	PlayerStats.reset_player_health()
 	PlayerStats.reset_boss_health()

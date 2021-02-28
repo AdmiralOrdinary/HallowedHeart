@@ -17,9 +17,6 @@ __meta__ = {
 
 [node name="Menu" parent="." instance=ExtResource( 3 )]
 
-[node name="CoverImage" parent="Menu" index="1"]
-position = Vector2( 160, 80 )
-
 [node name="MarginContainer" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox" index="0"]
 margin_right = 230.0
 size_flags_horizontal = 3

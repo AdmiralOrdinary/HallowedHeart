@@ -13,8 +13,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,63 +34,133 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Time" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 23.0
 margin_right = 66.0
-margin_bottom = 33.0
+margin_bottom = 131.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 31.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 31.0
+margin_bottom = 10.0
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rolls" type="Label" parent="VBoxContainer"]
-margin_top = 37.0
-margin_right = 66.0
-margin_bottom = 47.0
+[node name="Rolls" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 14.0
+margin_right = 31.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Kills" type="Label" parent="VBoxContainer"]
-margin_top = 51.0
-margin_right = 66.0
-margin_bottom = 61.0
+[node name="Kills" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 31.0
+margin_bottom = 38.0
 theme = ExtResource( 2 )
 custom_fonts/font = ExtResource( 3 )
 
-[node name="Deaths" type="Label" parent="VBoxContainer"]
-margin_top = 65.0
-margin_right = 66.0
-margin_bottom = 75.0
+[node name="Deaths" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 31.0
+margin_bottom = 52.0
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Restarts" type="Label" parent="VBoxContainer"]
-margin_top = 79.0
-margin_right = 66.0
-margin_bottom = 89.0
+[node name="Restarts" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 31.0
+margin_bottom = 66.0
 custom_fonts/font = ExtResource( 3 )
 
-[node name="DamageDone" type="Label" parent="VBoxContainer"]
-margin_top = 93.0
-margin_right = 66.0
-margin_bottom = 103.0
+[node name="DamageDone" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 70.0
+margin_right = 31.0
+margin_bottom = 80.0
 custom_fonts/font = ExtResource( 3 )
 
-[node name="DamageTaken" type="Label" parent="VBoxContainer"]
-margin_top = 107.0
-margin_right = 66.0
-margin_bottom = 117.0
+[node name="DamageTaken" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 31.0
+margin_bottom = 94.0
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeartsPickedUp" type="Label" parent="VBoxContainer"]
-margin_top = 121.0
-margin_right = 66.0
-margin_bottom = 131.0
+[node name="HeartsPickedUp" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 31.0
+margin_bottom = 108.0
 custom_fonts/font = ExtResource( 3 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 35.0
+margin_right = 66.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TimeGrade" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 31.0
+margin_bottom = 10.0
+size_flags_horizontal = 9
+custom_fonts/font = ExtResource( 3 )
+align = 2
+
+[node name="KillsGrade" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 14.0
+margin_right = 31.0
+margin_bottom = 24.0
+size_flags_horizontal = 9
+custom_fonts/font = ExtResource( 3 )
+align = 2
+
+[node name="DeathsGrade" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 31.0
+margin_bottom = 38.0
+size_flags_horizontal = 9
+custom_fonts/font = ExtResource( 3 )
+align = 2
+
+[node name="RestartsGrade" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 42.0
+margin_right = 31.0
+margin_bottom = 52.0
+size_flags_horizontal = 9
+custom_fonts/font = ExtResource( 3 )
+align = 2
+
+[node name="UpgradesGrade" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 56.0
+margin_right = 31.0
+margin_bottom = 66.0
+size_flags_horizontal = 9
+custom_fonts/font = ExtResource( 3 )
+align = 2
+
+[node name="FinalGrade" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 70.0
+margin_right = 31.0
+margin_bottom = 80.0
+size_flags_horizontal = 9
+custom_fonts/font = ExtResource( 3 )
+align = 2

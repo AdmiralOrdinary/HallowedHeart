@@ -40,8 +40,8 @@ func _ready():
 	
 func checkpoint():
 	print("checkpoint")
-	self.position.x = 821
-	self.position.y = 150
+	self.position.x = PlayerStats.playerStartPosition_X
+	self.position.y = PlayerStats.PlayerStartPosition_Y
 	
 func _physics_process(delta):
 	match state:
@@ -130,6 +130,6 @@ func _on_PlayerStats_no_health():
 	PlayerStats.deaths += 1
 	var deathMenu = DeathMenu.instance()
 	get_tree().get_root().get_node("World/UI").add_child(deathMenu)
-	queue_free()
+	#queue_free()
 	get_tree().paused = true
 

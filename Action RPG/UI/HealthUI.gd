@@ -13,16 +13,20 @@ var m = 0
 var timerText
 
 func _process(delta):
-	if ms > 9:
+	if ms > 59:
 		s+=1
 		ms=0
 		
 	if s > 59:
 		m+=1
 		s=0
+		
 	timerText = "%02d : %02d : %02d" % [m, s, ms]
 	richTextLabel.set_text(timerText)
 	PlayerStats.elapsed = timerText
+	PlayerStats.timeMinutes = m
+	PlayerStats.timeSeconds = s
+	PlayerStats.timeMiliseconds = ms
 	#timeLabel.text = "Time: " + PlayerStats.elapsed
 
 func set_hearts(value):
@@ -43,6 +47,10 @@ func add_max_hearts(value):
 		heartUIEmpty.rect_size.x = max_hearts * 15
 	
 func _ready():
+	m = PlayerStats.timeMinutes
+	s = PlayerStats.timeSeconds
+	ms = PlayerStats.timeMiliseconds
+	richTextLabel.set_text(PlayerStats.elapsed)
 	#connect("add")
 	self.max_hearts = PlayerStats.max_health
 	self.hearts = PlayerStats.health

@@ -27,6 +27,9 @@ var damageTaken = 0
 var elapsed = "00:00:00"
 var minutes = 0
 var seconds = 0
+var timeMinutes = 0
+var timeSeconds = 0
+var timeMiliseconds = 0
 
 signal health_count
 signal no_health
@@ -50,21 +53,20 @@ func _process(delta):
 	
 func _ready():
 	#time_start = OS.get_unix_time()
-	set_process(true)
+	#set_process(true)
 	self.health = max_health
 	self.boss_health = boss_max_health
 	
 func set_player_start_position_X(value):
 	playerStartPosition_X = value
 
-
 func set_player_start_position_Y(value):
 	PlayerStartPosition_Y = value 
 	
 func checkpoint():
 	emit_signal("checkpoint")
-	set_player_start_position_X(821)
-	set_player_start_position_Y(150)
+	set_player_start_position_X(800)
+	set_player_start_position_Y(360)
 	set_health(checkpoint_health)
 	set_max_health(checkpoint_max_health)
 	set_damage(checkpoint_damage)
@@ -75,6 +77,9 @@ func set_checkpoint():
 	checkpoint_damage = damage
 
 func main_menu():
+	timeMinutes = 0
+	timeSeconds = 0
+	timeMiliseconds = 0
 	elapsed = "00:00:00"
 	#time_now = time_start
 	#minutes = elapsed / 60

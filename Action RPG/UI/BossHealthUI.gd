@@ -29,3 +29,4 @@ func _ready():
 	self.hearts = PlayerStats.boss_health
 	PlayerStats.connect("boss_health_changed", self, "set_boss_hearts")
 	PlayerStats.connect("boss_max_health_changed", self, "set_max_boss_hearts")
+	PlayerStats.connect("checkpoint", self, "set_boss_hearts")

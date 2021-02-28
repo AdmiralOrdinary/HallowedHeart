@@ -23,7 +23,7 @@ func _ready():
 	PlayerStats.connect("checkpoint", self, "checkpoint")
 
 func checkpoint():
-	player.set_position(Vector2(821, 150))
+	player.set_position(Vector2(800, 360))
 	
 func _process(delta):
 	#time_now = OS.get_unix_time()
