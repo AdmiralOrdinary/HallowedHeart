@@ -34,6 +34,7 @@ onready var hurtcoll = $Hurtbox/CollisionShape2D
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
 	stats.set_process(false)
+	animationPlayer.play("Stop")
 	#self.visible = false
 	#hurtcoll.set_deferred("disabled", true)
 	#hitcoll.set_deferred("disabled", true)
@@ -45,6 +46,7 @@ func _physics_process(delta):
 	
 	match state:
 		IDLE:
+			#animationPlayer.play("Stop")
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 			seek_player()
 			
@@ -52,6 +54,7 @@ func _physics_process(delta):
 				update_wander()
 			
 		WANDER:
+			#animationPlayer.play("Stop")
 			seek_player()
 			if wanderController.get_time_left() == 0:
 				update_wander()
@@ -64,8 +67,10 @@ func _physics_process(delta):
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
-				accelerate_towards_point(player.global_position,delta)
+				#accelerate_towards_point(player.global_position,delta)
+				animationPlayer.play("Attack")
 			else:
+				#animationPlayer.play("Stop")
 				state = IDLE
 				
 				
@@ -78,12 +83,23 @@ func update_wander():
 	wanderController.start_wander_timer(rand_range(1, 3))
 
 func accelerate_towards_point(point, delta):
+	#animationPlayer.play("Attack")
 	var direction = global_position.direction_to(point)
-	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	velocity = velocity.move_toward(direction * MAX_SPEED*5, ACCELERATION*5 * delta)
+	#velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	#velocity = velocity.move_toward(direction * MAX_SPEED/5, ACCELERATION/5 * delta)
 	sprite.flip_h = velocity.x < 0
+	
+func jump_towards_point(point,delta):
+	var direction = global_position.direction_to(point)
+	velocity = velocity.move_toward(direction * MAX_SPEED*1.25, ACCELERATION*1.25 * delta)
+	#velocity = velocity.move_toward(direction * MAX_SPEED/5, ACCELERATION/5 * delta)
+	sprite.flip_h = velocity.x < 0
+	animationPlayer.play("Stop")
 
 func seek_player():
 	if playerDetectionZone.can_see_player():
+		
 		state = CHASE
 		
 func pick_random_state(state_list):

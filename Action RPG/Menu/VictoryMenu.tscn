@@ -116,16 +116,12 @@ margin_bottom = 0.0
 
 [node name="CenterContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="0"]
 margin_right = 223.0
-margin_bottom = 19.0
 
 [node name="Label" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/CenterContainer" index="0"]
 margin_left = 78.0
-margin_top = 0.0
 margin_right = 144.0
-margin_bottom = 19.0
 
 [node name="HBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="1"]
-margin_top = 23.0
 margin_right = 223.0
 margin_bottom = 103.0
 

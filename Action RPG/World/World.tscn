@@ -1902,6 +1902,9 @@ position = Vector2( -541.081, 446.219 )
 [node name="Zombie9" parent="YSort/Zombies" instance=ExtResource( 19 )]
 position = Vector2( -227.131, -62.7615 )
 
+[node name="Zombie12" parent="YSort/Zombies" instance=ExtResource( 19 )]
+position = Vector2( -985.062, -123.169 )
+
 [node name="Zombie2" parent="YSort/Zombies" instance=ExtResource( 19 )]
 position = Vector2( 83, -163 )
 
