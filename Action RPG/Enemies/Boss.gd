@@ -181,13 +181,13 @@ func _on_Hurtbox_invincibility_ended():
 
 func _on_Animation_finished():
 	timer.start()
-	print("timer start")
+	#print("timer start")
 	state = IDLE
 	
 
 func _on_Timer_timeout():
 	timer.stop()
-	print("timer Stop")
+	#print("timer Stop")
 	if nearplayerDetectionZone.can_see_player():
 		#print("Should print mid next")
 		seek_player()
@@ -202,6 +202,6 @@ func _on_Timer_timeout():
 
 func _on_Stats_health_count():
 	
-	print("HEALTH COUNT SIGNAL")
+	#print("HEALTH COUNT SIGNAL")
 	state = BREAK
-	stats.set_health_count(6)
+	stats.set_health_count(rand_range(4, 8))

@@ -242,7 +242,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 2,
-"values": [ Vector2( 44.1148, -149.838 ) ]
+"values": [ Vector2( -271.14, -86.5983 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("SuperBat3:position")
@@ -254,7 +254,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 2,
-"values": [ Vector2( 45.38, 95.5514 ) ]
+"values": [ Vector2( -272.707, 20.9851 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("SuperBat4:position")
@@ -1058,7 +1058,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( 55.3394, -161.062 ) ]
+"values": [ Vector2( -267.467, -103.486 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("SuperBat3:position")
@@ -1070,7 +1070,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( 47.6249, 98.9188 ) ]
+"values": [ Vector2( -268.574, 43.2301 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("SuperBat4:position")
@@ -1613,11 +1613,11 @@ animation = "Summon"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
 
-[sub_resource type="AnimationNodeStateMachine" id=34]
+[sub_resource type="AnimationNodeStateMachine" id=44]
 states/Idle/node = SubResource( 18 )
 states/Idle/position = Vector2( 360, 121 )
 states/Injured/node = SubResource( 19 )
@@ -1630,23 +1630,23 @@ states/RightAttack/node = SubResource( 22 )
 states/RightAttack/position = Vector2( 291, 212 )
 states/Summon/node = SubResource( 23 )
 states/Summon/position = Vector2( 148, 118 )
-transitions = [ "LeftAttack", "Idle", SubResource( 24 ), "Idle", "LeftAttack", SubResource( 25 ), "RightAttack", "Idle", SubResource( 26 ), "Idle", "RightAttack", SubResource( 27 ), "Idle", "MidAttack", SubResource( 28 ), "MidAttack", "Idle", SubResource( 29 ), "Idle", "Summon", SubResource( 30 ), "Summon", "Idle", SubResource( 31 ), "Injured", "Idle", SubResource( 32 ), "Idle", "Injured", SubResource( 33 ) ]
+transitions = [ "LeftAttack", "Idle", SubResource( 24 ), "Idle", "LeftAttack", SubResource( 25 ), "RightAttack", "Idle", SubResource( 26 ), "Idle", "RightAttack", SubResource( 27 ), "Idle", "MidAttack", SubResource( 28 ), "MidAttack", "Idle", SubResource( 29 ), "Idle", "Summon", SubResource( 30 ), "Summon", "Idle", SubResource( 31 ), "Injured", "Idle", SubResource( 42 ), "Idle", "Injured", SubResource( 43 ) ]
 start_node = "Idle"
 graph_offset = Vector2( 7, 22 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=35]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=45]
 
-[sub_resource type="ShaderMaterial" id=36]
+[sub_resource type="ShaderMaterial" id=46]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/active = false
 
-[sub_resource type="ShaderMaterial" id=37]
+[sub_resource type="ShaderMaterial" id=47]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/active = false
 
-[sub_resource type="ShaderMaterial" id=38]
+[sub_resource type="ShaderMaterial" id=48]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/active = false
@@ -1730,7 +1730,6 @@ wait_time = 0.8
 autostart = true
 
 [node name="RightHitbox" parent="." instance=ExtResource( 7 )]
-visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="RightHitbox" index="0"]
@@ -1747,7 +1746,6 @@ hframes = 15
 frame = 14
 
 [node name="MidHitbox" parent="." instance=ExtResource( 7 )]
-visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="MidHitbox" index="0"]
@@ -1764,7 +1762,6 @@ hframes = 15
 frame = 14
 
 [node name="LeftHitbox" parent="." instance=ExtResource( 7 )]
-visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="LeftHitbox" index="0"]
@@ -1798,22 +1795,22 @@ stream = ExtResource( 12 )
 volume_db = -15.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 34 )
+tree_root = SubResource( 44 )
 anim_player = NodePath("../BossAnimationPlayer")
-parameters/playback = SubResource( 35 )
+parameters/playback = SubResource( 45 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 36 )
+material = SubResource( 46 )
 position = Vector2( 0.44595, -36.3001 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 9 )
 hframes = 16
 
 [node name="SuperBat" parent="." instance=ExtResource( 8 )]
-position = Vector2( -267.482, -155.94 )
+position = Vector2( -264.115, -169.409 )
 
 [node name="AnimatedSprite" parent="SuperBat" index="0"]
-material = SubResource( 37 )
+material = SubResource( 47 )
 frame = 0
 
 [node name="CollisionShape2D" parent="SuperBat" index="2"]
@@ -1838,10 +1835,10 @@ visible = false
 visible = false
 
 [node name="SuperBat2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 44.1148, -149.838 )
+position = Vector2( -267.467, -103.486 )
 
 [node name="AnimatedSprite" parent="SuperBat2" index="0"]
-material = SubResource( 38 )
+material = SubResource( 48 )
 frame = 0
 
 [node name="CollisionShape2D" parent="SuperBat2" index="2"]
@@ -1866,7 +1863,7 @@ visible = false
 visible = false
 
 [node name="SuperBat3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 45.38, 95.5514 )
+position = Vector2( -268.574, 43.2301 )
 
 [node name="AnimatedSprite" parent="SuperBat3" index="0"]
 material = SubResource( 39 )
@@ -1894,7 +1891,7 @@ visible = false
 visible = false
 
 [node name="SuperBat4" parent="." instance=ExtResource( 8 )]
-position = Vector2( -272.418, 102.919 )
+position = Vector2( -271.296, 88.3268 )
 
 [node name="AnimatedSprite" parent="SuperBat4" index="0"]
 material = SubResource( 40 )

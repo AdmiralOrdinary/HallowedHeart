@@ -12,6 +12,7 @@ enum {
 	IDLE,
 	WANDER,
 	CHASE,
+	ATTACK,
 }
 
 var velocity = Vector2.ZERO
@@ -19,13 +20,17 @@ var knockback = Vector2.ZERO
 
 var state = IDLE
 
+
+
 onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
+onready var attackController = $AttackController
 onready var animationPlayer = $AnimationPlayer
+onready var attackAnimationPlayer = $AttackAnimationPlayer
 onready var hitbox = $Hitbox
 onready var collision = $CollisionShape2D
 onready var hitcoll = $Hitbox/CollisionShape2D
@@ -34,7 +39,7 @@ onready var hurtcoll = $Hurtbox/CollisionShape2D
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
 	stats.set_process(false)
-	animationPlayer.play("Stop")
+	#animationPlayer.play("Stop")
 	#self.visible = false
 	#hurtcoll.set_deferred("disabled", true)
 	#hitcoll.set_deferred("disabled", true)
@@ -67,11 +72,25 @@ func _physics_process(delta):
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
-				#accelerate_towards_point(player.global_position,delta)
-				animationPlayer.play("Attack")
+				#jump_towards_point(player.global_position,delta)
+				#animationPlayer.play("Attack")
+				state = ATTACK
 			else:
 				#animationPlayer.play("Stop")
 				state = IDLE
+				
+		ATTACK:
+			var player = playerDetectionZone.player
+			if player != null:
+				#jump_towards_point(player.global_position,delta)
+				attackAnimationPlayer.play("Attack")
+
+			else:
+				attackAnimationPlayer.play("Stop")
+				#animationPlayer.play("Stop")
+				state = IDLE
+			
+
 				
 				
 			if softCollision.is_colliding():
@@ -81,26 +100,41 @@ func _physics_process(delta):
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
 	wanderController.start_wander_timer(rand_range(1, 3))
+	
+func update_attack():
+	#state = pick_random_state([IDLE, WANDER])
+	attackController.start_wander_timer(3)
 
 func accelerate_towards_point(point, delta):
 	#animationPlayer.play("Attack")
 	var direction = global_position.direction_to(point)
-	velocity = velocity.move_toward(direction * MAX_SPEED*5, ACCELERATION*5 * delta)
-	#velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	#velocity = velocity.move_toward(direction * MAX_SPEED*5, ACCELERATION*5 * delta)
+	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	#velocity = velocity.move_toward(direction * MAX_SPEED/5, ACCELERATION/5 * delta)
 	sprite.flip_h = velocity.x < 0
+
+
+func stop_moving(delta):
+	velocity = Vector2.ZERO
 	
-func jump_towards_point(point,delta):
-	var direction = global_position.direction_to(point)
-	velocity = velocity.move_toward(direction * MAX_SPEED*1.25, ACCELERATION*1.25 * delta)
+func jump_towards_point(delta):
+	#velocity = velocity.move_toward(0 * 0, 0 * delta)
+	#animationPlayer.play("Stop")
+	var player = playerDetectionZone.player
+	if player != null:
+		var direction = global_position.direction_to(player.global_position)
+		velocity = velocity.move_toward(direction * MAX_SPEED*1.25, ACCELERATION*1.25 * delta)
 	#velocity = velocity.move_toward(direction * MAX_SPEED/5, ACCELERATION/5 * delta)
-	sprite.flip_h = velocity.x < 0
-	animationPlayer.play("Stop")
+		sprite.flip_h = velocity.x < 0
+	#animationPlayer.play("Stop")
+	else:
+		attackAnimationPlayer.play("Stop")
 
 func seek_player():
 	if playerDetectionZone.can_see_player():
-		
-		state = CHASE
+		state = ATTACK
+	else:
+		pick_random_state([IDLE, WANDER])
 		
 func pick_random_state(state_list):
 	state_list.shuffle()
@@ -142,6 +176,8 @@ func _on_Stats_no_health():
 
 func _on_Hurtbox_invincibility_started():
 	animationPlayer.play("Start")
+	attackAnimationPlayer.stop(false)
 
 func _on_Hurtbox_invincibility_ended():
 	animationPlayer.play("Stop")
+	attackAnimationPlayer.play()

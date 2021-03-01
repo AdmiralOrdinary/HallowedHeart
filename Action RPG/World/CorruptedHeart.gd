@@ -4,6 +4,7 @@ onready var HeartPickupSound = $HeartPickupSound
 onready var HeartSprite = $Sprite
 onready var StartBlink = $Startblink
 onready var animationPlayer = $AnimationPlayer
+var victoryMenu =  preload("res://Menu/VictoryMenu.tscn")
 
 signal add_max_health(value)
 
@@ -13,7 +14,9 @@ signal add_max_health(value)
 
 
 func _on_SmallHeart_area_entered(area):
-	get_tree().change_scene("res://World/World.tscn")
+	var ysort = get_parent()
+	var world = ysort.get_parent()
+	world.get_node("UI").add_child(victoryMenu.instance())
 	queue_free()
 		#PlayerStats.add_max_health(1)
 	HeartPickupSound.play()

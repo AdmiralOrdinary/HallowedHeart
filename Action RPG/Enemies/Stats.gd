@@ -5,7 +5,7 @@ var health = max_health setget set_health
 var damage = 1
 var boss_health = 21 setget set_boss_health
 var boss_max_health = 21 setget set_boss_max_health
-var health_count = 6  setget set_health_count
+var health_count = 8  setget set_health_count
 var checkpoint_max_health
 var checkpoint_health
 var checkpoint_damage
@@ -30,6 +30,7 @@ var seconds = 0
 var timeMinutes = 0
 var timeSeconds = 0
 var timeMiliseconds = 0
+var upgrades = 0
 
 signal health_count
 signal no_health
@@ -117,6 +118,7 @@ func set_max_health(value):
 	emit_signal("max_health_changed", max_health)
 	
 func add_max_health(value):
+	upgrades += 1
 	#emit_signal("add_max_health", 1)
 	max_health += value
 	self.health = min(health, max_health)
@@ -129,6 +131,7 @@ func set_health(value):
 		emit_signal("no_health")
 		
 func add_damage(value):
+	upgrades += 1
 	damage += value
 	emit_signal("damage_change", value)
 

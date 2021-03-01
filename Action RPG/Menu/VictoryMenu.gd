@@ -1,13 +1,19 @@
 extends Control
 
 onready var scene_tree: = get_tree()
-onready var deathsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Deaths
-onready var restartsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Restarts
-onready	var timeLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Time
-onready var kills = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Kills
+onready var deathsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Deaths
+#$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Deaths
+onready var restartsLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Restarts
+#$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Restarts
+onready	var timeLabel = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Time
+#$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Time
+onready var kills = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/Kills
+#$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Kills
 onready var hearts =$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HeartsPickedUp
-onready var damageDone = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/DamageDone
-onready var damageTaken =$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/DamageTaken
+onready var damageDone = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/DamageDone
+#$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/DamageDone
+onready var damageTaken = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer/DamageTaken
+#$PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/DamageTaken
 onready var rolls = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/Rolls
 onready var checkpointButton = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton
 onready var MenuSelect = $MenuSelectSound
@@ -18,46 +24,139 @@ onready var deathsGrade = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxConta
 onready var restartsGrade = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2/RestartsGrade
 onready var upgradesGrade = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2/UpgradesGrade
 onready var finalGrade = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2/FinalGrade
+onready var title = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/CenterContainer/Label
 
 func _ready():
-	timeLabel.text = "Time: " + PlayerStats.elapsed
+	title.text = "Thanks for Playing"
+	timeLabel.text = "Time: " + str(PlayerStats.elapsed)
 	kills.text = "Kills: " + str(PlayerStats.kills)
 	deathsLabel.text = "Deaths: " + str(PlayerStats.deaths)
 	restartsLabel.text = "Restarts: " + str(PlayerStats.restarts)
-	damageDone.text = "Damage Dealt: " + str(PlayerStats.damageDone)
+	damageDone.text = "Upgrades: " + str(PlayerStats.upgrades)
+	damageTaken.text = "FINAL GRADE: "
+	var average = 0
+	set_paused(true)
 	
-	if PlayerStats.timeMinutes > 10:
+	if PlayerStats.timeMinutes > 11:
 		timeGrade.text = "F"
-	elif PlayerStats.timeMinutes >= 8:
+		average += 0
+	elif PlayerStats.timeMinutes >= 9:
 		timeGrade.text = "D"
-	elif PlayerStats.timeMinutes >= 6:
+		average += 1
+	elif PlayerStats.timeMinutes >= 7:
 		timeGrade.text = "C"
-	elif PlayerStats.timeMinutes >= 4:
+		average += 2
+	elif PlayerStats.timeMinutes >= 5:
 		timeGrade.text = "B"
-	elif PlayerStats.timeMinutes >= 2:
+		average += 3
+	elif PlayerStats.timeMinutes >= 3:
 		timeGrade.text = "A"
-	elif PlayerStats.timeMinutes == 0:
+		average += 4
+	elif PlayerStats.timeMinutes <= 2:
 		timeGrade.text = "S"
+		average += 5
 		
 	if PlayerStats.kills < 5:
 		killsGrade.text = "F"
+		average += 0
 	elif PlayerStats.kills <= 9:
 		killsGrade.text = "D"
+		average += 1
 	elif PlayerStats.kills <= 12:
 		killsGrade.text = "C"
+		average += 2
 	elif PlayerStats.kills <= 15:
 		killsGrade.text = "B"
+		average += 3
 	elif PlayerStats.kills <= 18:
 		killsGrade.text = "A"
+		average += 4
 	elif PlayerStats.kills >= 20:
 		killsGrade.text = "S"
+		average += 5
 	#32 Soft Max on kills
 	#18 bats guarding upgrad + boss
 		
-	killsGrade.text = "Kills: " + str(PlayerStats.kills)
-	deathsGrade.text = "Deaths: " + str(PlayerStats.deaths)
-	restartsGrade.text = "Restarts: " + str(PlayerStats.restarts)
-	upgradesGrade.text = "Damage Dealt: " + str(PlayerStats.damageDone)		
+	if PlayerStats.deaths > 10:
+		deathsGrade.text = "F"
+		average += 0
+	elif PlayerStats.deaths >= 8:
+		deathsGrade.text = "D"
+		average += 1
+	elif PlayerStats.deaths >= 6:
+		deathsGrade.text = "C"
+		average += 2
+	elif PlayerStats.deaths >= 4:
+		deathsGrade.text = "B"
+		average += 3
+	elif PlayerStats.deaths >= 2:
+		deathsGrade.text = "A"
+		average += 4
+	elif PlayerStats.deaths < 2:
+		deathsGrade.text = "S"
+		average += 5
+	
+	if PlayerStats.restarts > 10:
+		restartsGrade.text = "F"
+		average += 0
+	elif PlayerStats.restarts >= 8:
+		restartsGrade.text = "D"
+		average += 1
+	elif PlayerStats.restarts >= 6:
+		restartsGrade.text = "C"
+		average += 2
+	elif PlayerStats.restarts >= 4:
+		restartsGrade.text = "B"
+		average += 3
+	elif PlayerStats.restarts >= 2:
+		restartsGrade.text = "A"
+		average += 4
+	elif PlayerStats.restarts < 2:
+		restartsGrade.text = "S"
+		average += 5
+		
+	if PlayerStats.upgrades <= 2:
+		upgradesGrade.text = "F"
+		average += 0
+	elif PlayerStats.upgrades <= 4:
+		upgradesGrade.text = "D"
+		average += 1
+	elif PlayerStats.upgrades <= 6:
+		upgradesGrade.text = "C"
+		average += 2
+	elif PlayerStats.upgrades <= 8:
+		upgradesGrade.text = "B"
+		average += 3
+	elif PlayerStats.upgrades < 10:
+		upgradesGrade.text = "A"
+		average += 4
+	elif PlayerStats.upgrades == 10:
+		upgradesGrade.text = "S"
+		average += 5
+		
+	average = average/5
+	
+	if average == 0:
+		finalGrade.text = "F"
+
+	elif average <= 1:
+		finalGrade.text = "D"
+
+	elif average <= 2:
+		finalGrade.text = "C"
+
+	elif average <= 3:
+		finalGrade.text = "B"
+
+	elif average <= 4:
+		finalGrade.text = "A"
+
+	elif average <= 5:
+		finalGrade.text = "S"
+
+	
+	#restartsGrade.text = "S"
+	#upgradesGrade.text = "S"	
 	#hearts.text = "Hearts: " + str(PlayerStats.hearts)
 	#rolls.text = "Rolls: " + str(PlayerStats.rolls)
 	#damageTaken.text = "Damage Taken: " + str(PlayerStats.damageTaken)
@@ -67,24 +166,24 @@ func _ready():
 var paused: = true setget set_paused
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	#if event.is_action_pressed("pause"):
 		set_paused(true)
-		if PlayerStats.checkpoint == true:
-			checkpointButton.set_visible(true)
-		else:
-			pass
-		rolls.text = "Rolls: " + str(PlayerStats.rolls)
-		damageTaken.text = "Damage Taken: " + str(PlayerStats.damageTaken)
-		deathsLabel.text = "Deaths: " + str(PlayerStats.deaths)
-		restartsLabel.text = "Restarts: " + str(PlayerStats.restarts)
-		timeLabel.text = "Time: " + PlayerStats.elapsed
-		kills.text = "Kills: " + str(PlayerStats.kills)
-		hearts.text = "Hearts: " + str(PlayerStats.hearts)
-		damageDone.text = "Damage Dealt: " + str(PlayerStats.damageDone)
-		if PlayerStats.health == 0:
-			scene_tree.set_input_as_handled()
-		else:
-			pass
+		#if PlayerStats.checkpoint == true:
+		#	checkpointButton.set_visible(true)
+		#else:
+		#	pass
+		#rolls.text = "Rolls: " + str(PlayerStats.rolls)
+		#damageTaken.text = "Damage Taken: " + str(PlayerStats.damageTaken)
+		#deathsLabel.text = "Deaths: " + str(PlayerStats.deaths)
+		#restartsLabel.text = "Restarts: " + str(PlayerStats.restarts)
+		#timeLabel.text = "Time: " + PlayerStats.elapsed
+		#kills.text = "Kills: " + str(PlayerStats.kills)
+		#hearts.text = "Hearts: " + str(PlayerStats.hearts)
+		#damageDone.text = "Damage Dealt: " + str(PlayerStats.damageDone)
+		#if PlayerStats.health == 0:
+		scene_tree.set_input_as_handled()
+		#else:
+		#	pass
 
 func set_paused(value: bool) -> void:
 	paused = value

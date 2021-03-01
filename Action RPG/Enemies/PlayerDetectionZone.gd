@@ -10,7 +10,10 @@ func _on_PlayerDetectionZone_body_entered(body):
 
 func _on_PlayerDetectionZone_body_exited(_body):
 	player = null
-
+	
+#func get_player_position(body):
+	#player = body
+	#player.global_position
 
 func _on_World2PlayerDetectionZone_body_entered(body):
 	get_tree().change_scene("res://World3.tscn")

@@ -1902,9 +1902,6 @@ position = Vector2( -541.081, 446.219 )
 [node name="Zombie9" parent="YSort/Zombies" instance=ExtResource( 19 )]
 position = Vector2( -227.131, -62.7615 )
 
-[node name="Zombie12" parent="YSort/Zombies" instance=ExtResource( 19 )]
-position = Vector2( -985.062, -123.169 )
-
 [node name="Zombie2" parent="YSort/Zombies" instance=ExtResource( 19 )]
 position = Vector2( 83, -163 )
 
@@ -1932,6 +1929,9 @@ position = Vector2( -222, 363 )
 [node name="Zombie6" parent="YSort/Zombies" instance=ExtResource( 19 )]
 position = Vector2( -318, 334 )
 
+[node name="Boss" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 1304, 360 )
+
 [node name="WorldMusicPlayer" parent="." instance=ExtResource( 8 )]
 
 [node name="BossMusicPlayer" parent="." instance=ExtResource( 8 )]
@@ -1952,13 +1952,10 @@ shape = SubResource( 53 )
 disabled = true
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="Boss" parent="." instance=ExtResource( 15 )]
-position = Vector2( 1304, 360 )
 [connection signal="finished" from="WorldMusicPlayer" to="." method="_on_WorldMusicPlayer_finished"]
 [connection signal="finished" from="BossMusicPlayer" to="." method="_on_BossMusicPlayer_finished"]
-[connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_entered"]
 [connection signal="body_entered" from="PlayerDetectionZone" to="Camera2D" method="_on_PlayerDetectionZone_body_entered"]
+[connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_entered"]
 
 [editable path="UI"]
 
