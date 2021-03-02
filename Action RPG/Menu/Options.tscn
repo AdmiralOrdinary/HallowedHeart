@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=1]
 [ext_resource path="res://World/CoverImage.png" type="Texture" id=2]
 [ext_resource path="res://Menu/Options.gd" type="Script" id=3]
+[ext_resource path="res://Menu/MasterVolumeSlider.gd" type="Script" id=4]
 
 [node name="Options" type="Control"]
+pause_mode = 2
+process_priority = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -85,6 +88,37 @@ margin_bottom = 117.0
 size_flags_horizontal = 11
 size_flags_vertical = 3
 
+[node name="VBoxContainer" type="VBoxContainer" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer"]
+margin_right = 205.0
+margin_bottom = 117.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer"]
+margin_right = 205.0
+margin_bottom = 19.0
+
+[node name="Label" type="Label" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 19.0
+theme = ExtResource( 1 )
+text = "Volume:   "
+
+[node name="MasterVolumeSlider" type="HSlider" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/HBoxContainer"]
+pause_mode = 2
+margin_left = 74.0
+margin_right = 181.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+max_value = 1.0
+step = 0.05
+script = ExtResource( 4 )
+
+[node name="SpacerNode" type="Label" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 185.0
+margin_right = 205.0
+margin_bottom = 19.0
+text = "     "
+
 [node name="VBoxContainer" type="VBoxContainer" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox"]
 margin_left = 209.0
 margin_right = 280.0
@@ -93,6 +127,7 @@ size_flags_horizontal = 9
 size_flags_vertical = 3
 
 [node name="StartGameButton" type="Button" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer"]
+pause_mode = 2
 margin_right = 71.0
 margin_bottom = 25.0
 text = "   Back   "
@@ -126,4 +161,6 @@ margin_top = 75.0
 margin_right = 78.0
 margin_bottom = 100.0
 text = "Quit"
+[connection signal="mouse_exited" from="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" method="_on_MasterVolumeSlider_mouse_exited"]
+[connection signal="value_changed" from="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" method="_on_MasterVolumeSlider_value_changed"]
 [connection signal="pressed" from="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]

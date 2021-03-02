@@ -24,7 +24,7 @@ config/icon="res://icon.png"
 PlayerStats="*res://Player/PlayerStats.tscn"
 SmallHeart="res://World/SmallHeart.gd"
 SwordHitbox="res://Player/SwordHitbox.gd"
-Options="*res://Menu/Options.tscn"
+Options="res://Menu/Options.tscn"
 
 [display]
 

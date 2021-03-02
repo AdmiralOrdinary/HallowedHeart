@@ -12,6 +12,7 @@ onready var rolls = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/M
 onready var checkpointButton = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton
 onready var MenuSelect = $MenuSelectSound
 onready var pause_overlay = $PauseOverlay
+onready var 
 
 func _ready():
 	deathsLabel.text = "Deaths: " + str(PlayerStats.deaths)
@@ -85,3 +86,8 @@ func _on_QuitButton_pressed():
 	get_tree().change_scene("res://Menu/StartMenu.tscn")
 	#MenuSelect.play()
 	#scene_tree.quit()
+
+
+func _on_Button_pressed():
+	options.set_visible(true)
+	menu.set_visible(false)

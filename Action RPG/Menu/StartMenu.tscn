@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menu/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=2]
 [ext_resource path="res://Menu/Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Music and Sounds/Menu Select.wav" type="AudioStream" id=4]
 [ext_resource path="res://Music and Sounds/Second_HappySong.wav" type="AudioStream" id=5]
+[ext_resource path="res://Menu/Options.tscn" type="PackedScene" id=6]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -14,6 +15,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Options" parent="." instance=ExtResource( 6 )]
 
 [node name="Menu" parent="." instance=ExtResource( 3 )]
 
@@ -140,6 +143,7 @@ size_flags_vertical = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="visibility_changed" from="Options" to="." method="_on_Options_visibility_changed"]
 [connection signal="pressed" from="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]

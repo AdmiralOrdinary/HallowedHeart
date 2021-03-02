@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://Music and Sounds/Unpause.wav" type="AudioStream" id=2]
 [ext_resource path="res://Music and Sounds/Pause.wav" type="AudioStream" id=3]
+[ext_resource path="res://Menu/Options.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=5]
 [ext_resource path="res://Menu/MenuSelectSound.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menu/DeathMenu.tscn" type="PackedScene" id=7]
@@ -26,6 +27,9 @@ color = Color( 0, 0, 0, 0.254902 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Options" parent="PauseOverlay" instance=ExtResource( 4 )]
+visible = false
 
 [node name="DeathMenu" parent="PauseOverlay" instance=ExtResource( 7 )]
 
