@@ -1811,7 +1811,7 @@ position = Vector2( -264.115, -169.409 )
 
 [node name="AnimatedSprite" parent="SuperBat" index="0"]
 material = SubResource( 47 )
-frame = 0
+frame = 3
 
 [node name="CollisionShape2D" parent="SuperBat" index="2"]
 visible = false
@@ -1839,7 +1839,7 @@ position = Vector2( -267.467, -103.486 )
 
 [node name="AnimatedSprite" parent="SuperBat2" index="0"]
 material = SubResource( 48 )
-frame = 0
+frame = 3
 
 [node name="CollisionShape2D" parent="SuperBat2" index="2"]
 visible = false
@@ -1867,7 +1867,7 @@ position = Vector2( -268.574, 43.2301 )
 
 [node name="AnimatedSprite" parent="SuperBat3" index="0"]
 material = SubResource( 39 )
-frame = 0
+frame = 3
 
 [node name="CollisionShape2D" parent="SuperBat3" index="2"]
 visible = false
@@ -1895,7 +1895,7 @@ position = Vector2( -271.296, 88.3268 )
 
 [node name="AnimatedSprite" parent="SuperBat4" index="0"]
 material = SubResource( 40 )
-frame = 0
+frame = 3
 
 [node name="CollisionShape2D" parent="SuperBat4" index="2"]
 visible = false

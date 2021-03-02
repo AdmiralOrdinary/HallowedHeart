@@ -37,41 +37,41 @@ func _ready():
 	var average = 0
 	set_paused(true)
 	
-	if PlayerStats.timeMinutes > 11:
+	if PlayerStats.timeMinutes > 10:
 		timeGrade.text = "F"
 		average += 0
-	elif PlayerStats.timeMinutes >= 9:
+	elif PlayerStats.timeMinutes >= 7:
 		timeGrade.text = "D"
 		average += 1
-	elif PlayerStats.timeMinutes >= 7:
+	elif PlayerStats.timeMinutes >= 6:
 		timeGrade.text = "C"
 		average += 2
 	elif PlayerStats.timeMinutes >= 5:
 		timeGrade.text = "B"
 		average += 3
-	elif PlayerStats.timeMinutes >= 3:
+	elif PlayerStats.timeMinutes > 4:
 		timeGrade.text = "A"
 		average += 4
-	elif PlayerStats.timeMinutes <= 2:
+	elif PlayerStats.timeMinutes <= 4:
 		timeGrade.text = "S"
 		average += 5
 		
 	if PlayerStats.kills < 5:
 		killsGrade.text = "F"
 		average += 0
-	elif PlayerStats.kills <= 9:
+	elif PlayerStats.kills <= 10:
 		killsGrade.text = "D"
 		average += 1
-	elif PlayerStats.kills <= 12:
+	elif PlayerStats.kills <= 15:
 		killsGrade.text = "C"
 		average += 2
-	elif PlayerStats.kills <= 15:
+	elif PlayerStats.kills <= 25:
 		killsGrade.text = "B"
 		average += 3
-	elif PlayerStats.kills <= 18:
+	elif PlayerStats.kills <= 34:
 		killsGrade.text = "A"
 		average += 4
-	elif PlayerStats.kills >= 20:
+	elif PlayerStats.kills >= 35:
 		killsGrade.text = "S"
 		average += 5
 	#32 Soft Max on kills
@@ -115,22 +115,22 @@ func _ready():
 		restartsGrade.text = "S"
 		average += 5
 		
-	if PlayerStats.upgrades <= 2:
+	if PlayerStats.upgrades <= 1:
 		upgradesGrade.text = "F"
 		average += 0
-	elif PlayerStats.upgrades <= 4:
+	elif PlayerStats.upgrades <= 2:
 		upgradesGrade.text = "D"
 		average += 1
-	elif PlayerStats.upgrades <= 6:
+	elif PlayerStats.upgrades <= 3:
 		upgradesGrade.text = "C"
 		average += 2
-	elif PlayerStats.upgrades <= 8:
+	elif PlayerStats.upgrades <= 4:
 		upgradesGrade.text = "B"
 		average += 3
-	elif PlayerStats.upgrades < 10:
+	elif PlayerStats.upgrades < 5:
 		upgradesGrade.text = "A"
 		average += 4
-	elif PlayerStats.upgrades == 10:
+	elif PlayerStats.upgrades >= 6:
 		upgradesGrade.text = "S"
 		average += 5
 		

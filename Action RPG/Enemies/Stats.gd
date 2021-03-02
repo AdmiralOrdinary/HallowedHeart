@@ -93,6 +93,7 @@ func main_menu():
 	damageDone = 0
 	rolls = 0
 	damageTaken = 0
+	upgrades = 0
 	reset_player_health()
 	reset_boss_health()
 

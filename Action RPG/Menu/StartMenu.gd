@@ -2,10 +2,13 @@ extends Control
 
 onready var MenuSelect = $MenuSelect
 onready var TitleSongPlayer = $TitleSongPlayer
+onready var menu = $Menu
+onready var options = get_parent().add_child(Options)
 
 func _ready():
 	TitleSongPlayer.play()
 	PlayerStats.main_menu()
+	var options = get_parent().add_child(Options)
 
 func _on_StartGameButton_pressed():
 	PlayerStats.main_menu()
@@ -22,3 +25,8 @@ func _on_QuitGameButton_pressed():
 
 func _on_TitleSongPlayer_finished():
 	TitleSongPlayer.play()
+
+
+func _on_OptionsButton_pressed():
+	options.visible = true
+	menu.visible = false

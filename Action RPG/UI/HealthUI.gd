@@ -13,7 +13,7 @@ var m = 0
 var timerText
 
 func _process(delta):
-	if ms > 59:
+	if ms > 9:
 		s+=1
 		ms=0
 		
