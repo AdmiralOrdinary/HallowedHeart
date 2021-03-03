@@ -12,6 +12,8 @@ onready var rolls = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/M
 onready var checkpointButton = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton
 onready var MenuSelect = $MenuSelectSound
 onready var pause_overlay = $PauseOverlay
+onready var options = $Options
+onready var menu = $PauseOverlay
 #onready var 
 
 func _ready():
@@ -89,6 +91,10 @@ func _on_QuitButton_pressed():
 
 
 func _on_Button_pressed():
+	options.set_visible(true)
+	menu.set_visible(false)
+
+
+func _on_StartGameButton_pressed():
 	#options.set_visible(true)
-	#menu.set_visible(false)
-	pass
+	menu.set_visible(true)

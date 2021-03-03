@@ -5,6 +5,8 @@ onready var PauseSound = $PauseSound
 onready var UnpauseSound = $UnpauseSound
 onready var scene_tree: = get_tree()
 onready var pause_overlay: ColorRect = get_node("PauseOverlay")
+onready var options = $PauseOverlay/DeathMenu/Options
+onready var menu = $PauseOverlay/DeathMenu/PauseOverlay
 #onready var deathsLabel = $PlayerStatTrackers/VBoxContainer/Deaths
 #onready var restartsLabel = $PlayerStatTrackers/VBoxContainer/Restarts
 #onready	var timeLabel = $PlayerStatTrackers/VBoxContainer/Time
@@ -63,3 +65,13 @@ func _on_QuitButton_pressed():
 	get_tree().change_scene("res://Menu/StartMenu.tscn")
 	#MenuSelect.play()
 	#scene_tree.quit()
+
+
+func _on_Button_pressed():
+	options.set_visible(true)
+	menu.set_visible(false)
+
+
+func _on_StartGameButton_pressed():
+	options.set_visible(false)
+	menu.set_visible(true)

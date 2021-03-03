@@ -20,23 +20,12 @@ __meta__ = {
 
 [node name="Menu" parent="." instance=ExtResource( 3 )]
 
-[node name="Layer1VBox" parent="Menu/FullMargin" index="0"]
-margin_bottom = 170.0
-
-[node name="SecondMargin" parent="Menu/FullMargin/Layer1VBox" index="1"]
-margin_bottom = 160.0
-
-[node name="Layer2HBox" parent="Menu/FullMargin/Layer1VBox/SecondMargin" index="0"]
-margin_bottom = 127.0
-
 [node name="MarginContainer" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox" index="0"]
-margin_right = 209.0
-margin_bottom = 117.0
+margin_right = 208.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox" index="1"]
-margin_left = 213.0
-margin_bottom = 117.0
+margin_left = 212.0
 
 [node name="Label" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="0"]
 margin_right = 67.0
@@ -52,7 +41,7 @@ text = "Start"
 margin_right = 67.0
 
 [node name="QuitGameButton" parent="Menu/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer" index="4"]
-visible = false
+margin_right = 67.0
 
 [node name="MenuSelect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

@@ -33,6 +33,9 @@ visible = false
 
 [node name="DeathMenu" parent="PauseOverlay" instance=ExtResource( 7 )]
 
+[node name="VBoxContainer2" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer" index="0"]
+margin_bottom = 185.0
+
 [node name="Title2" type="Label" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/CenterContainer" index="0"]
 pause_mode = 2
 margin_left = 120.0
@@ -68,6 +71,7 @@ margin_left = 171.0
 
 [node name="VBoxContainer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2" index="0"]
 margin_right = 105.0
+margin_bottom = 132.0
 
 [node name="Spacer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="0"]
 margin_right = 69.0
@@ -87,7 +91,7 @@ margin_top = 42.0
 margin_right = 69.0
 margin_bottom = 62.0
 
-[node name="QuitButton" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="4"]
+[node name="QuitButton" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="5"]
 margin_top = 66.0
 margin_right = 69.0
 margin_bottom = 86.0
@@ -135,8 +139,12 @@ stream = ExtResource( 3 )
 stream = ExtResource( 2 )
 
 [node name="MenuSelectSound" parent="." instance=ExtResource( 6 )]
+[connection signal="pressed" from="PauseOverlay/Options/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+
+[editable path="PauseOverlay/Options"]
 
 [editable path="PauseOverlay/DeathMenu"]
