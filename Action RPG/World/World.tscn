@@ -1954,8 +1954,8 @@ disabled = true
 [node name="Tween" type="Tween" parent="."]
 [connection signal="finished" from="WorldMusicPlayer" to="." method="_on_WorldMusicPlayer_finished"]
 [connection signal="finished" from="BossMusicPlayer" to="." method="_on_BossMusicPlayer_finished"]
-[connection signal="body_entered" from="PlayerDetectionZone" to="Camera2D" method="_on_PlayerDetectionZone_body_entered"]
 [connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_PlayerDetectionZone_body_entered"]
+[connection signal="body_entered" from="PlayerDetectionZone" to="Camera2D" method="_on_PlayerDetectionZone_body_entered"]
 
 [editable path="UI"]
 

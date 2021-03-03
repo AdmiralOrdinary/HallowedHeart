@@ -123,7 +123,7 @@ func jump_towards_point(delta):
 	var player = playerDetectionZone.player
 	if player != null:
 		var direction = global_position.direction_to(player.global_position)
-		velocity = velocity.move_toward(direction * MAX_SPEED*1.25, ACCELERATION*1.25 * delta)
+		velocity = velocity.move_toward(direction * MAX_SPEED*2, ACCELERATION*2 * delta)
 	#velocity = velocity.move_toward(direction * MAX_SPEED/5, ACCELERATION/5 * delta)
 		sprite.flip_h = velocity.x < 0
 	#animationPlayer.play("Stop")

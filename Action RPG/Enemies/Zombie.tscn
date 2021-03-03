@@ -53,7 +53,7 @@ radius = 7.0
 height = 4.0
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 52.0496
+radius = 83.9335
 
 [sub_resource type="CapsuleShape2D" id=11]
 radius = 4.43828
@@ -62,7 +62,7 @@ height = 3.60056
 [sub_resource type="CircleShape2D" id=12]
 radius = 6.29038
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "Attack"
 length = 5.0
 loop = true
@@ -96,8 +96,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "Start"
+[sub_resource type="Animation" id=14]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -113,8 +112,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "Stop"
+[sub_resource type="Animation" id=15]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
@@ -205,6 +203,7 @@ material = SubResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 7 )
 animation = "Fly"
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -253,9 +252,9 @@ shape = SubResource( 12 )
 [node name="AttackController" parent="." instance=ExtResource( 11 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 15 )
-anims/Start = SubResource( 13 )
-anims/Stop = SubResource( 14 )
+anims/Attack = SubResource( 13 )
+anims/Start = SubResource( 14 )
+anims/Stop = SubResource( 15 )
 
 [node name="AttackAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 16 )
