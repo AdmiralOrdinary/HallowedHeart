@@ -75,3 +75,13 @@ func _on_Button_pressed():
 func _on_StartGameButton_pressed():
 	options.set_visible(false)
 	menu.set_visible(true)
+
+
+func _on_CheckpointButton_pressed():
+	paused = false
+	scene_tree.paused = false
+	#timeLabel.text = "Time: " + PlayerStats.str_elapsed
+	#deathsLabel.text = "Deaths: " + str(PlayerStats.deaths)
+	#restartsLabel.text = "Restarts: " + str(PlayerStats.restarts)
+	pause_overlay.visible = false
+#	playerStatTrackers.visible = value

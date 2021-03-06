@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menu/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://Music and Sounds/Unpause.wav" type="AudioStream" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=5]
 [ext_resource path="res://Menu/MenuSelectSound.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menu/DeathMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Roboto10.tres" type="DynamicFont" id=8]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -33,9 +34,6 @@ visible = false
 
 [node name="DeathMenu" parent="PauseOverlay" instance=ExtResource( 7 )]
 
-[node name="VBoxContainer2" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer" index="0"]
-margin_bottom = 185.0
-
 [node name="Title2" type="Label" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/CenterContainer" index="0"]
 pause_mode = 2
 margin_left = 120.0
@@ -50,9 +48,6 @@ __meta__ = {
 
 [node name="Title" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/CenterContainer" index="1"]
 visible = false
-margin_left = 106.0
-margin_right = 194.0
-margin_bottom = 19.0
 
 [node name="MarginContainer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer" index="0"]
 margin_right = 167.0
@@ -70,8 +65,7 @@ margin_right = 137.0
 margin_left = 171.0
 
 [node name="VBoxContainer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2" index="0"]
-margin_right = 105.0
-margin_bottom = 132.0
+margin_right = 99.0
 
 [node name="Spacer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="0"]
 margin_right = 69.0
@@ -81,6 +75,7 @@ pause_mode = 2
 margin_top = 18.0
 margin_right = 69.0
 margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
 text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -141,6 +136,7 @@ stream = ExtResource( 2 )
 [node name="MenuSelectSound" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="PauseOverlay/Options/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton" to="." method="_on_CheckpointButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

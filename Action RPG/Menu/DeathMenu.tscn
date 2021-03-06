@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menu/DeathMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/PlayerStatTrackers.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/Options.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menu/MenuSelectSound.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menu/menu_theme.tres" type="Theme" id=5]
+[ext_resource path="res://UI/Roboto10.tres" type="DynamicFont" id=6]
 
 [node name="DeathMenu" type="Control"]
 pause_mode = 2
@@ -69,7 +70,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="ColorRect" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer"]
-margin_right = 169.0
+margin_right = 174.0
 margin_bottom = 137.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -89,7 +90,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 164.0
+margin_right = 169.0
 margin_bottom = 132.0
 color = Color( 0.2, 0.172549, 0.313726, 1 )
 
@@ -107,7 +108,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer"]
 margin_left = 3.0
 margin_top = 3.0
-margin_right = 156.0
+margin_right = 161.0
 margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -116,70 +117,70 @@ __meta__ = {
 }
 
 [node name="PlayerStatTrackers" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 153.0
+margin_right = 158.0
 margin_bottom = 0.0
 
 [node name="CenterContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="0"]
-margin_right = 153.0
+margin_right = 158.0
 
 [node name="Label" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/CenterContainer" index="0"]
-margin_left = 43.0
-margin_right = 109.0
+margin_left = 46.0
+margin_right = 112.0
 
 [node name="HBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer" index="1"]
-margin_right = 153.0
+margin_right = 158.0
 
 [node name="VBoxContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer" index="0"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="Time" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="Rolls" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="Kills" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="Deaths" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="Restarts" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="4"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="DamageDone" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="5"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="DamageTaken" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="6"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="HeartsPickedUp" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer" index="7"]
-margin_right = 74.0
+margin_right = 77.0
 
 [node name="VBoxContainer2" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer" index="1"]
-margin_left = 78.0
-margin_right = 153.0
+margin_left = 81.0
+margin_right = 158.0
 
 [node name="TimeGrade" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2" index="0"]
-margin_right = 75.0
+margin_right = 77.0
 
 [node name="KillsGrade" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2" index="1"]
-margin_right = 75.0
+margin_right = 77.0
 
 [node name="DeathsGrade" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2" index="2"]
-margin_right = 75.0
+margin_right = 77.0
 
 [node name="RestartsGrade" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2" index="3"]
-margin_right = 75.0
+margin_right = 77.0
 
 [node name="UpgradesGrade" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2" index="4"]
-margin_right = 75.0
+margin_right = 77.0
 
 [node name="FinalGrade" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/MarginContainer/ColorRect/MarginContainer/VBoxContainer/PlayerStatTrackers/VBoxContainer/HBoxContainer/VBoxContainer2" index="5"]
-margin_right = 75.0
+margin_right = 77.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 173.0
+margin_left = 178.0
 margin_right = 300.0
 margin_bottom = 137.0
 custom_constants/margin_right = 30
@@ -191,7 +192,7 @@ custom_constants/margin_bottom = 20
 pause_mode = 2
 margin_left = 30.0
 margin_top = 20.0
-margin_right = 97.0
+margin_right = 92.0
 margin_bottom = 117.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -210,26 +211,31 @@ pause_mode = 2
 visible = false
 margin_right = 83.0
 margin_bottom = 20.0
+custom_fonts/font = ExtResource( 6 )
 text = "Checkpoint"
 
 [node name="RestartButton" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
 pause_mode = 2
-margin_right = 67.0
-margin_bottom = 25.0
+margin_right = 62.0
+margin_bottom = 19.0
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "Restart"
 
 [node name="Button" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
-margin_top = 29.0
-margin_right = 67.0
-margin_bottom = 54.0
+margin_top = 23.0
+margin_right = 62.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 6 )
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer"]
 pause_mode = 2
-margin_top = 58.0
-margin_right = 67.0
-margin_bottom = 83.0
-text = "Quit"
+margin_top = 46.0
+margin_right = 62.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 6 )
+text = "Main Menu"
 
 [node name="MenuSelectSound" parent="." instance=ExtResource( 4 )]
 [connection signal="pressed" from="Options/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]

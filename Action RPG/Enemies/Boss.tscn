@@ -24,8 +24,8 @@ height = 26.4634
 extents = Vector2( 59.8112, 208.036 )
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 19.7695
-height = 0.0
+radius = 1.42213
+height = 1.46258
 
 [sub_resource type="Animation" id=5]
 resource_name = "Start"
@@ -1613,11 +1613,11 @@ animation = "Summon"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
 
-[sub_resource type="AnimationNodeStateMachine" id=44]
+[sub_resource type="AnimationNodeStateMachine" id=34]
 states/Idle/node = SubResource( 18 )
 states/Idle/position = Vector2( 360, 121 )
 states/Injured/node = SubResource( 19 )
@@ -1630,23 +1630,23 @@ states/RightAttack/node = SubResource( 22 )
 states/RightAttack/position = Vector2( 291, 212 )
 states/Summon/node = SubResource( 23 )
 states/Summon/position = Vector2( 148, 118 )
-transitions = [ "LeftAttack", "Idle", SubResource( 24 ), "Idle", "LeftAttack", SubResource( 25 ), "RightAttack", "Idle", SubResource( 26 ), "Idle", "RightAttack", SubResource( 27 ), "Idle", "MidAttack", SubResource( 28 ), "MidAttack", "Idle", SubResource( 29 ), "Idle", "Summon", SubResource( 30 ), "Summon", "Idle", SubResource( 31 ), "Injured", "Idle", SubResource( 42 ), "Idle", "Injured", SubResource( 43 ) ]
+transitions = [ "LeftAttack", "Idle", SubResource( 24 ), "Idle", "LeftAttack", SubResource( 25 ), "RightAttack", "Idle", SubResource( 26 ), "Idle", "RightAttack", SubResource( 27 ), "Idle", "MidAttack", SubResource( 28 ), "MidAttack", "Idle", SubResource( 29 ), "Idle", "Summon", SubResource( 30 ), "Summon", "Idle", SubResource( 31 ), "Injured", "Idle", SubResource( 32 ), "Idle", "Injured", SubResource( 33 ) ]
 start_node = "Idle"
 graph_offset = Vector2( 7, 22 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=45]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=35]
 
-[sub_resource type="ShaderMaterial" id=46]
+[sub_resource type="ShaderMaterial" id=36]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/active = false
 
-[sub_resource type="ShaderMaterial" id=47]
+[sub_resource type="ShaderMaterial" id=37]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/active = false
 
-[sub_resource type="ShaderMaterial" id=48]
+[sub_resource type="ShaderMaterial" id=38]
 resource_local_to_scene = true
 shader = ExtResource( 10 )
 shader_param/active = false
@@ -1694,7 +1694,7 @@ scale = Vector2( 0.946529, 0.893278 )
 shape = SubResource( 3 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 7 )]
-position = Vector2( 0.44595, -15.0137 )
+position = Vector2( -4.85138, -10.2461 )
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
@@ -1749,13 +1749,13 @@ frame = 14
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="MidHitbox" index="0"]
-position = Vector2( -39.2474, -23 )
+position = Vector2( -117, -23 )
 shape = SubResource( 10 )
 disabled = true
 
 [node name="MidHitSprite" type="Sprite" parent="MidHitbox"]
 visible = false
-position = Vector2( 0.752625, -36 )
+position = Vector2( -77, -36 )
 scale = Vector2( 4.02344, 3.80469 )
 texture = ExtResource( 2 )
 hframes = 15
@@ -1795,12 +1795,12 @@ stream = ExtResource( 12 )
 volume_db = -15.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 44 )
+tree_root = SubResource( 34 )
 anim_player = NodePath("../BossAnimationPlayer")
-parameters/playback = SubResource( 45 )
+parameters/playback = SubResource( 35 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 46 )
+material = SubResource( 36 )
 position = Vector2( 0.44595, -36.3001 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 9 )
@@ -1810,8 +1810,8 @@ hframes = 16
 position = Vector2( -264.115, -169.409 )
 
 [node name="AnimatedSprite" parent="SuperBat" index="0"]
-material = SubResource( 47 )
-frame = 3
+material = SubResource( 37 )
+frame = 0
 
 [node name="CollisionShape2D" parent="SuperBat" index="2"]
 visible = false
@@ -1838,8 +1838,8 @@ visible = false
 position = Vector2( -267.467, -103.486 )
 
 [node name="AnimatedSprite" parent="SuperBat2" index="0"]
-material = SubResource( 48 )
-frame = 3
+material = SubResource( 38 )
+frame = 0
 
 [node name="CollisionShape2D" parent="SuperBat2" index="2"]
 visible = false
@@ -1867,7 +1867,7 @@ position = Vector2( -268.574, 43.2301 )
 
 [node name="AnimatedSprite" parent="SuperBat3" index="0"]
 material = SubResource( 39 )
-frame = 3
+frame = 0
 
 [node name="CollisionShape2D" parent="SuperBat3" index="2"]
 visible = false
@@ -1895,7 +1895,7 @@ position = Vector2( -271.296, 88.3268 )
 
 [node name="AnimatedSprite" parent="SuperBat4" index="0"]
 material = SubResource( 40 )
-frame = 3
+frame = 0
 
 [node name="CollisionShape2D" parent="SuperBat4" index="2"]
 visible = false

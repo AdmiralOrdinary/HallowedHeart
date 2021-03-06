@@ -71,11 +71,15 @@ func checkpoint():
 	set_health(checkpoint_health)
 	set_max_health(checkpoint_max_health)
 	set_damage(checkpoint_damage)
+	self.boss_health = boss_max_health
 	
 func set_checkpoint():
+	set_player_start_position_X(800)
+	set_player_start_position_Y(360)
 	checkpoint_health = health
 	checkpoint_max_health = max_health
 	checkpoint_damage = damage
+	self.boss_health = boss_max_health
 
 func main_menu():
 	timeMinutes = 0

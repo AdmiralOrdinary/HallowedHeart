@@ -14,6 +14,7 @@ signal add_max_health(value)
 
 
 func _on_SmallHeart_area_entered(area):
+	PlayerStats.checkpoint = false
 	var ysort = get_parent()
 	var world = ysort.get_parent()
 	world.get_node("UI").add_child(victoryMenu.instance())

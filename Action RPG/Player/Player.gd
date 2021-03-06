@@ -83,7 +83,7 @@ func move_state(delta):
 		state = ATTACK
 
 func roll_state():
-	hurtbox.start_invincibility(0.1)
+	hurtbox.start_roll(0.3)
 	velocity = roll_vector * ROLL_SPEED
 	animationState.travel("Roll")
 	move()
@@ -133,3 +133,11 @@ func _on_PlayerStats_no_health():
 	#queue_free()
 	get_tree().paused = true
 
+
+
+func _on_Hurtbox_roll_started():
+	blinkAnimationPlayer.play("Stop")
+
+
+func _on_Hurtbox_roll_ended():
+	blinkAnimationPlayer.play("Stop")

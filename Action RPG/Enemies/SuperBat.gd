@@ -32,6 +32,7 @@ onready var hitcoll = $Hitbox/CollisionShape2D
 onready var hurtcoll = $Hurtbox/CollisionShape2D
 
 func _ready():
+	stats.set_health(4)
 	state = pick_random_state([IDLE, WANDER])
 	self.visible = false
 	hurtcoll.set_deferred("disabled", true)
@@ -109,7 +110,7 @@ func _on_Hurtbox_area_entered(area):
 func _on_Stats_no_health():
 	PlayerStats.kills += 1
 	create_smallheart()
-	stats.set_health(2)
+	stats.set_health(4)
 	#queue_free()
 	self.visible = false
 	hitbox.set_deferred("monitoring", false)

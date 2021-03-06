@@ -41,6 +41,10 @@ onready var bat1health = $SuperBat1/Stats
 onready var bat2health = $SuperBat2/Stats
 onready var bat3health = $SuperBat3/Stats
 onready var bat4health = $SuperBat4/Stats
+onready var bat1 = $SuperBat1
+onready var bat2 = $SuperBat2
+onready var bat3 = $SuperBat3
+onready var bat4 = $SuperBat4
 onready var timer = $Timer
 
 
@@ -49,6 +53,7 @@ func _ready():
 	state = IDLE #pick_random_state([ATTACKLEFT, ATTACKMID, ATTACKRIGHT])
 	timer.start()
 	PlayerStats.connect("boss_no_health", self, "_on_Stats_no_health")
+	PlayerStats.connect("checkpoint", self, "checkpoint")
 	stats.set_process(false)
 
 func _physics_process(delta):	
@@ -102,6 +107,22 @@ func _physics_process(delta):
 	#velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	#sprite.flip_h = velocity.x < 0
 
+func checkpoint():
+	bat1health.set_health(4)
+	bat2health.set_health(4)
+	bat3health.set_health(4)
+	bat4health.set_health(4)
+	state = IDLE
+	hurtbox.stop_invincibility()
+	bat1.set_visible(false)
+	bat2.set_visible(false)
+	bat3.set_visible(false)
+	bat4.set_visible(false)
+	bat1.get_node(hurtbox).set_monitoring(false)
+	bat1.get_node(hurtbox).set_monitorable(false)
+	#bat1.get_node(hitbox).set_monitoring(false)
+	#bat1.get_node(hitbox).set_monitorable(false)
+
 func seek_player():
 	animationState.travel("Idle")
 	#print(state)
@@ -130,10 +151,10 @@ func seek_player():
 			state = ATTACKRIGHT
 		else:
 			#print("Should print summon next")
-			bat1health.set_health(2)
-			bat2health.set_health(2)
-			bat3health.set_health(2)
-			bat4health.set_health(2)
+			bat1health.set_health(4)
+			bat2health.set_health(4)
+			bat3health.set_health(4)
+			bat4health.set_health(4)
 			state = SUMMON
 	elif random <= 65:
 		#print("4")
