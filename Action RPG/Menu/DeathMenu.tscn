@@ -20,6 +20,9 @@ __meta__ = {
 [node name="Options" parent="." instance=ExtResource( 3 )]
 visible = false
 
+[node name="VSyncHBoxContainer" parent="Options/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer" index="3"]
+title = ""
+
 [node name="PauseOverlay" type="ColorRect" parent="."]
 pause_mode = 2
 anchor_right = 1.0

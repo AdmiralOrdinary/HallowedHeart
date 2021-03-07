@@ -49,6 +49,7 @@ func _on_ContinueButton_pressed():
 
 
 func _on_RestartButton_pressed():
+	PlayerStats.checkpoint = false
 	PlayerStats.kills = 0
 	PlayerStats.upgrades = 0
 	PlayerStats.restarts += 1
@@ -60,6 +61,7 @@ func _on_RestartButton_pressed():
 
 
 func _on_QuitButton_pressed():
+	PlayerStats.checkpoint = false
 	PlayerStats.main_menu()
 	#TitleSongPlayer.stop()
 	MenuSelect.play()

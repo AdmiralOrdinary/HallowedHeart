@@ -32,6 +32,9 @@ __meta__ = {
 [node name="Options" parent="PauseOverlay" instance=ExtResource( 4 )]
 visible = false
 
+[node name="VSyncHBoxContainer" parent="PauseOverlay/Options/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer" index="3"]
+title = ""
+
 [node name="DeathMenu" parent="PauseOverlay" instance=ExtResource( 7 )]
 
 [node name="Title2" type="Label" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/CenterContainer" index="0"]

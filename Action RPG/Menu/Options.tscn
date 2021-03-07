@@ -135,17 +135,18 @@ script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/FullscreenHBoxContainer"]
 margin_top = 4.0
-margin_right = 113.0
+margin_right = 86.0
 margin_bottom = 23.0
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 text = "Full Screen: "
 
 [node name="CheckBox" type="CheckBox" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/FullscreenHBoxContainer"]
 pause_mode = 2
-margin_left = 117.0
+margin_left = 207.0
 margin_right = 231.0
 margin_bottom = 27.0
-size_flags_horizontal = 3
+size_flags_horizontal = 0
+align = 1
 
 [node name="VSyncHBoxContainer" type="HBoxContainer" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer"]
 visible = false
@@ -153,6 +154,7 @@ margin_top = 54.0
 margin_right = 205.0
 margin_bottom = 81.0
 script = ExtResource( 6 )
+title = ""
 
 [node name="Label" type="Label" parent="FullMargin/Layer1VBox/SecondMargin/Layer2HBox/MarginContainer/VBoxContainer/VSyncHBoxContainer"]
 margin_top = 4.0
