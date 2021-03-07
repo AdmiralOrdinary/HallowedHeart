@@ -37,16 +37,23 @@ onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 #onready var wanderController = $WanderController
 onready var animationPlayer = $AnimationPlayer
-onready var bat1health = $SuperBat1/Stats
+onready var bat1health = $SuperBat/Stats
 onready var bat2health = $SuperBat2/Stats
 onready var bat3health = $SuperBat3/Stats
 onready var bat4health = $SuperBat4/Stats
-onready var bat1 = $SuperBat1
+onready var bat1 = $SuperBat
 onready var bat2 = $SuperBat2
 onready var bat3 = $SuperBat3
 onready var bat4 = $SuperBat4
 onready var timer = $Timer
-
+onready var bat1hurtbox = $SuperBat/Hurtbox
+onready var bat1hitbox = $SuperBat/Hitbox
+onready var bat2hurtbox = $SuperBat2/Hurtbox
+onready var bat2hitbox = $SuperBat2/Hitbox
+onready var bat3hurtbox = $SuperBat3/Hurtbox
+onready var bat3hitbox = $SuperBat3/Hitbox
+onready var bat4hurtbox = $SuperBat4/Hurtbox
+onready var bat4hitbox = $SuperBat4/Hitbox
 
 func _ready():
 	animationTree.active = true
@@ -118,10 +125,22 @@ func checkpoint():
 	bat2.set_visible(false)
 	bat3.set_visible(false)
 	bat4.set_visible(false)
-	bat1.get_node(hurtbox).set_monitoring(false)
-	bat1.get_node(hurtbox).set_monitorable(false)
-	#bat1.get_node(hitbox).set_monitoring(false)
-	#bat1.get_node(hitbox).set_monitorable(false)
+	bat1hitbox.set_monitoring(false)
+	bat1hitbox.set_monitorable(false)
+	bat1hurtbox.set_monitoring(false)
+	bat1hurtbox.set_monitorable(false)
+	bat2hitbox.set_monitoring(false)
+	bat2hitbox.set_monitorable(false)
+	bat2hurtbox.set_monitoring(false)
+	bat2hurtbox.set_monitorable(false)
+	bat3hitbox.set_monitoring(false)
+	bat3hitbox.set_monitorable(false)
+	bat3hurtbox.set_monitoring(false)
+	bat3hurtbox.set_monitorable(false)
+	bat4hitbox.set_monitoring(false)
+	bat4hitbox.set_monitorable(false)
+	bat4hurtbox.set_monitoring(false)
+	bat4hurtbox.set_monitorable(false)
 
 func seek_player():
 	animationState.travel("Idle")
