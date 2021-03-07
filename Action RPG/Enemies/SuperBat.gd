@@ -108,7 +108,7 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.start_invincibility(0.4)
 
 func _on_Stats_no_health():
-	PlayerStats.kills += 1
+	#PlayerStats.kills += 1
 	create_smallheart()
 	stats.set_health(4)
 	#queue_free()

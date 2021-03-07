@@ -71,6 +71,8 @@ func _on_CheckpointButton_pressed():
 	
 
 func _on_RestartButton_pressed():
+	PlayerStats.kills = 0
+	PlayerStats.upgrades = 0
 	if PlayerStats.health != 0:
 		PlayerStats.restarts += 1
 	MenuSelect.play()

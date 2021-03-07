@@ -70,7 +70,7 @@ margin_right = 99.0
 [node name="Spacer" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="0"]
 margin_right = 69.0
 
-[node name="ContinueButton" type="Button" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="1"]
+[node name="ContinueButton" type="Button" parent="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer" index="2"]
 pause_mode = 2
 margin_top = 18.0
 margin_right = 69.0
@@ -135,8 +135,8 @@ stream = ExtResource( 2 )
 
 [node name="MenuSelectSound" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="PauseOverlay/Options/FullMargin/Layer1VBox/SecondMargin/Layer2HBox/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
-[connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/CheckpointButton" to="." method="_on_CheckpointButton_pressed"]
+[connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/DeathMenu/PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

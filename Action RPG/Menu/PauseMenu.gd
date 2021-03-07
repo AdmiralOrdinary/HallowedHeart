@@ -49,6 +49,8 @@ func _on_ContinueButton_pressed():
 
 
 func _on_RestartButton_pressed():
+	PlayerStats.kills = 0
+	PlayerStats.upgrades = 0
 	PlayerStats.restarts += 1
 	PlayerStats.reset_boss_health()
 	MenuSelect.play()

@@ -29,10 +29,10 @@ onready var title = $PauseOverlay/MarginContainer/VBoxContainer2/HBoxContainer/M
 func _ready():
 	title.text = "Thanks for Playing"
 	timeLabel.text = "Time: " + str(PlayerStats.elapsed)
-	kills.text = "Kills: " + str(PlayerStats.kills)
+	kills.text = "Kills: " + str(PlayerStats.kills) + "/37"
 	deathsLabel.text = "Deaths: " + str(PlayerStats.deaths)
 	restartsLabel.text = "Restarts: " + str(PlayerStats.restarts)
-	damageDone.text = "Upgrades: " + str(PlayerStats.upgrades)
+	damageDone.text = "Upgrades: " + str(PlayerStats.upgrades) + "/6"
 	damageTaken.text = "FINAL GRADE: "
 	var average = 0
 	set_paused(true)
@@ -52,8 +52,11 @@ func _ready():
 	elif PlayerStats.timeMinutes > 4:
 		timeGrade.text = "A"
 		average += 4
-	elif PlayerStats.timeMinutes <= 4:
+	elif PlayerStats.timeMinutes >= 2:
 		timeGrade.text = "S"
+		average += 5
+	elif PlayerStats.timeMinutes < 2:
+		timeGrade.text = "SPEED"
 		average += 5
 		
 	if PlayerStats.kills < 5:
@@ -71,13 +74,19 @@ func _ready():
 	elif PlayerStats.kills <= 34:
 		killsGrade.text = "A"
 		average += 4
-	elif PlayerStats.kills >= 35:
+	elif PlayerStats.kills < 37:
 		killsGrade.text = "S"
+		average += 5
+	elif PlayerStats.kills >= 37:
+		killsGrade.text = "KILLER"
 		average += 5
 	#32 Soft Max on kills
 	#18 bats guarding upgrad + boss
 		
-	if PlayerStats.deaths > 10:
+	if PlayerStats.deaths >= 11:
+		deathsGrade.text = "Try Harder"
+		average += 0
+	elif PlayerStats.deaths >= 10:
 		deathsGrade.text = "F"
 		average += 0
 	elif PlayerStats.deaths >= 8:
@@ -206,6 +215,8 @@ func set_paused(value: bool) -> void:
 	
 
 func _on_RestartButton_pressed():
+	PlayerStats.kills = 0
+	PlayerStats.upgrades = 0
 	MenuSelect.play()
 	PlayerStats.reset_player_health()
 	PlayerStats.reset_boss_health()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Enemies/TUTORIAL_Bat.tscn" type="PackedScene" id=27]
 [ext_resource path="res://World/TUTORIAL_GRASS.tscn" type="PackedScene" id=28]
 [ext_resource path="res://World/XK_ROLL.tscn" type="PackedScene" id=29]
+[ext_resource path="res://World/CheckeredFlag.tscn" type="PackedScene" id=30]
+[ext_resource path="res://World/checkpoint.tscn" type="PackedScene" id=31]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -542,7 +544,7 @@ visible = false
 [node name="PauseMenu" parent="UI" instance=ExtResource( 21 )]
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
-position = Vector2( 22.2408, 92.402 )
+position = Vector2( 16.2408, 84.902 )
 region_rect = Rect2( -912, 0, 2767.89, 864 )
 
 [node name="DirtPathTileMap" type="TileMap" parent="."]
@@ -1960,6 +1962,12 @@ position = Vector2( -20.4737, 28.0332 )
 
 [node name="ESC_PAUSE4" parent="YSort" instance=ExtResource( 29 )]
 position = Vector2( -843.545, -142.676 )
+
+[node name="Flag1" parent="YSort" instance=ExtResource( 30 )]
+position = Vector2( 640.124, 101.292 )
+
+[node name="checkpoint" parent="YSort" instance=ExtResource( 31 )]
+position = Vector2( 651.408, 64.007 )
 
 [node name="WorldMusicPlayer" parent="." instance=ExtResource( 8 )]
 
